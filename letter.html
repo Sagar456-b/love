@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For My Love 💌</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #fff0f6;
+      font-family: 'Georgia', serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+      box-sizing: border-box;
+      /* cursor: wait; */
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #c2185b;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .heart-button {
+      font-size: 3rem;
+      cursor: grab;
+      color: #e91e63;
+      margin-top: 20px;
+      animation: pulse 1.5s infinite;
+      transition: transform 0.3s;
+    }
+
+    .heart-button:hover {
+      transform: scale(1.2);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    .letter, .letter_2, .rosyy {
+      margin-top: 30px;
+      background: #fff;
+      border-bottom: 5px solid #f8bbd0;
+      border-right: 6px solid #f8bbd0;
+      padding: 20px;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+
+    .show {
+      display: block;
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    .signature {
+      margin-top: 20px;
+      font-style: italic;
+      color: #888;
+    }
+
+    .btn_2, .btn_3 {
+      background-color: #c2185b;
+      border: none;
+      color: white;
+      padding: 12px 24px;
+      text-align: center;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    /* button:hover {
+      background-color: #a0144b;
+    } */
+
+    h5 {
+      color: #c2185b;
+      text-align: center;
+      font-weight: normal;
+    }
+    #msg{
+        display: none;
+    }
+  </style>
+</head>
+<body>
+
+    <div style="text-align: center;" id="top_head" >
+        <button class="btn_1" style="font-size: 6rem; cursor: grab;" onclick = "showmsg()"  ontouchstart = "showmsg()">
+            💌
+        </button>
+        <H3 style="color: green;">Unlock the letter by clicking on it !</H3>
+        <p style="color: red; font-family: cursive;">  YOU HAVE ONE NEW MESSAGE .... </p>
+    </div>
+
+  
+    
+    
+    <div id="msg" style="text-align: center; align-items: center;"> 
+        <h1>Hi Prena, I wrote you a little something 💌</h1>
+
+        <div id="heading" style="text-align: center;">
+          <h5 >Touch my heart to read it !</h5>
+          <div class="heart-button" onclick="revealMessage()">💖</div>
+        </div>
+      
+        <div class="letter" id="secretMessage" >
+          <p>
+            Hi Prena,<br><br>
+            I just wanted to give you a big hug and a big heart.<br>
+            I'm so glad that you're in my life and I'm in yours.<br>
+          </p>
+          <p class="signature">— Yours always 💕</p>
+          <button class="btn_2" onclick="revealMessage2()">Next</button>
+        </div>
+      
+        <div class="letter_2" id="secretMessage2">
+          <p style="font-style: italic; color: crimson;">
+            I know life feels heavy right now, and I want you to know — I'm here for you.<br><br>
+            I see how hard you're working to find your place in this world. And while the path might feel uncertain, you don’t have to walk it alone. I'm here, cheering for you, believing in you, every single step.<br><br>
+            We met at a time when neither of us expected to. But maybe that's exactly when the right people show up — when we need them most.<br><br>
+            I know what you've been through. Healing a heart and building a life after heartbreak isn’t easy. But I believe in your strength, your courage, and your softness — the kind that endures.<br><br>
+            You are not alone. I’m with you — always.
+          </p>
+          <button class="btn_3" onclick="revealMessage3()">Next</button>
+        </div>
+      
+        <div class="rosyy" id="rose">
+          <p style="font-style: italic;">
+            You’re the reason even the roses seem to smile today.
+          </p>
+          <p style="font-size: 2rem;">💐</p>
+          <p>
+            ThAnK YoU !!
+          </p>
+        </div>
+  </div>
+
+  <script>
+
+    function showmsg(){
+        document.getElementById('msg').style.display = 'block';
+        
+        document.getElementById('top_head').style.display = 'none';
+    }
+    function revealMessage() {
+      const msg = document.getElementById('secretMessage');
+      msg.classList.add('show');
+    }
+
+    function revealMessage2() {
+      document.getElementById('secretMessage').style.display = 'none';
+      document.getElementById('heading').style.display = 'none';
+      const msg2 = document.getElementById('secretMessage2');
+      msg2.classList.add('show');
+    }
+
+    function revealMessage3() {
+      document.getElementById('secretMessage2').style.display = 'none';
+      const rose = document.getElementById('rose');
+      rose.classList.add('show');
+    }
+  </script>
+
+</body>
+</html>
